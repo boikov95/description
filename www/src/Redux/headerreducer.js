@@ -2,9 +2,9 @@ import { API } from "../api/api";
 
 const SET_SEARCH = 'SET_SEARCH';
 
-export const searchCountry = (search) => ({ type:SET_SEARCH, search});
+export const searchCountry = (search) => ({ type: SET_SEARCH, search });
 
-let initialState = {    
+let initialState = {
     search: ""
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field} from 'redux-form'
+import { Field } from 'redux-form'
 import { FormControl } from '../FormControl/FormControl'
 import { required } from '../FormControl/required'
 import s from '../FormControl/FormControl.module.css'
@@ -13,7 +13,7 @@ const AddComment = (props) => {
             </div>
             <div>
                 <Field className={s.text} component={FormControl} validate={required} name={'text'} placeholder={'Введите текст комментария'} />
-            </div>               
+            </div>
             <div>
                 <button className={s.publish} disabled={props.invalid || props.submitting || props.pristine}>Добавить комментарий</button>
             </div>

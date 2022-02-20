@@ -2,9 +2,9 @@ import { API } from "../api/api";
 
 const GET_STATISTIC = 'GET_STATISTIC';
 
-export const getStatistic = (statistic) => ({ type:GET_STATISTIC, statistic});
+export const getStatistic = (statistic) => ({ type: GET_STATISTIC, statistic });
 
-let initialState = {    
+let initialState = {
     statistic: []
 }
 
@@ -14,16 +14,16 @@ let statisticreducer = (state = initialState, action) => {
             return {
                 ...state,
                 statistic: action.statistic
-            }       
+            }
         default: return state;
     }
 }
 
-    
+
 export const addStatistic = (id) =>
     async (dispatch, getState) => {
-        await API.addStatistic(id, getState().document.parentdocument);    
-    }      
+        await API.addStatistic(id, getState().document.parentdocument);
+    }
 
 
 export default statisticreducer;

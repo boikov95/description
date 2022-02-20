@@ -1,14 +1,12 @@
-import React, { useRef } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Modal.module.css';
 
-const ModalContainer = (props) => {    
+const ModalContainer = (props) => {
 
     return (
         <div className={s.modal + " " + (props.active ? s.active : "")} onClick={() => props.setActive(false)}>
-            <div className={s.modal_content}>                 
+            <div className={s.modal_content}>
                 <ul className={s.parent}>
                     В БД добавлена новая информация:
                     {props.lastInstruction.map((el) => {
@@ -29,13 +27,4 @@ const ModalContainer = (props) => {
 
 }
 
-
-//let mapStateToProps = (state) => {
-//    return {
-//        lastInstruction: state.modal.document
-//    }
-
-//}
-
-//export default connect(mapStateToProps, { getlastDocument })(ModalContainer);
 export default ModalContainer;

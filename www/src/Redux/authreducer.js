@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-import { stopSubmit } from "redux-form";
 import { API } from "../api/api";
 
 const SET_TREE = 'SET_TREE';
@@ -11,14 +10,14 @@ export const setFlag = (flag) => ({ type: FLAG_INSTRUCTION, flag });
 export const setDocumentFlag = (flag) => ({ type: FLAG_DOCUMENT, flag });
 
 
-let initialState = {    
+let initialState = {
     tree: [],
     flagInstructions: false,
     flagDocument: false
 }
 
 let authreducer = (state = initialState, action) => {
-    switch (action.type) {        
+    switch (action.type) {
         case SET_TREE:
             return {
                 ...state,
@@ -41,11 +40,11 @@ let authreducer = (state = initialState, action) => {
 
 export const tree = () =>
     async (dispatch) => {
-        let data = await API.loadtree(); 
-        if (data.code === "success") { 
-        dispatch(setTree(data.result));        
-        }        
-    }    
+        let data = await API.loadtree();
+        if (data.code === "success") {
+            dispatch(setTree(data.result));
+        }
+    }
 
 
 

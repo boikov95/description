@@ -4,12 +4,12 @@ import { getlastDocument } from '../../Redux/modalreducer';
 import Bootstrap from './Bootstrap';
 import s from './Bootstrap.module.css';
 
-class BootstrapComponent extends React.Component {    
+class BootstrapComponent extends React.Component {
 
     render() {
         return (
             <div className={s.bootstrap}>
-            <Bootstrap {...this.props} />
+                <Bootstrap {...this.props} />
             </div>
         )
     }
@@ -23,4 +23,4 @@ let mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {getlastDocument})(BootstrapComponent);
+export default connect(mapStateToProps, { getlastDocument })(BootstrapComponent);

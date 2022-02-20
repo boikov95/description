@@ -4,10 +4,10 @@ import Header from './Header';
 import { searchCountry } from '../../Redux/headerreducer';
 import { setSearch, setSearchTeg } from '../../Redux/instructionsreducer';
 
-class HeaderComponent extends React.Component {    
+class HeaderComponent extends React.Component {
 
-    
-    render() {        
+
+    render() {
         return (
             <Header {...this.props} />
 
@@ -27,4 +27,4 @@ let mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {searchCountry, setSearchTeg, setSearch})(HeaderComponent);
+export default connect(mapStateToProps, { searchCountry, setSearchTeg, setSearch })(HeaderComponent);

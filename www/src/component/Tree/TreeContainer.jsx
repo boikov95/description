@@ -7,29 +7,29 @@ import s from './Tree.module.css';
 import { loadTree } from '../../Redux/userSelector';
 
 
-class TreeComponent extends React.Component {        
+class TreeComponent extends React.Component {
 
     componentDidMount() {
         this.props.tree();
     }
 
 
-    render() {        
+    render() {
         if (this.props.loadtree.length == 0)
             return (<div>
                 <img className={s.photoload} src={tooglephoto} />
             </div>)
 
-        return (            
-            <nav className={s.nav}> 
-                <TreeCategory loadtree={this.props.loadtree.filter(u=>u.text.toLowerCase().indexOf(this.props.search.toLowerCase())!=-1)} />
+        return (
+            <nav className={s.nav}>
+                <TreeCategory loadtree={this.props.loadtree.filter(u => u.text.toLowerCase().indexOf(this.props.search.toLowerCase()) != -1)} />
             </nav>
         )
     }
 }
 
 let mapStateToProps = (state) => {
-    return {        
+    return {
         loadtree: loadTree(state),
         search: state.header.search
     }

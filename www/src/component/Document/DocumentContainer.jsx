@@ -9,12 +9,12 @@ import tooglephoto from '../../photo/loading.gif';
 import { setDocumentFlag } from '../../Redux/authreducer';
 import { addStatistic } from '../../Redux/statisticreducer';
 
-class DocumentContainer extends React.Component { 
+class DocumentContainer extends React.Component {
 
-    render() {  
+    render() {
 
-        if (this.props.loadtree.length===0)
-        return (<div><img className={s.photoload} src={tooglephoto} /></div>)
+        if (this.props.loadtree.length === 0)
+            return (<div><img className={s.photoload} src={tooglephoto} /></div>)
 
         return (
             <div>
@@ -32,6 +32,6 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { loadDocument, setDocumentFlag, setParentDocumentText, addStatistic}),
+    connect(mapStateToProps, { loadDocument, setDocumentFlag, setParentDocumentText, addStatistic }),
     withRouter
 )(DocumentContainer)

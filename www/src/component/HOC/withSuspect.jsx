@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const withSuspect = (Component, loadtree) => {
+export const withSuspect = (Component) => {
     return (props) => {
-
-        if (loadtree.length==0)
-        return <div>Загрузка</div>
-
-        return <Component {...props} />
+        return <React.Suspense fallback={<div>Загрузка...</div>}>
+            <Component {...props} />
+        </React.Suspense>
     }
 }
+
+
 

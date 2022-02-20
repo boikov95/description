@@ -5,19 +5,19 @@ import Comment from './Comment';
 import s from './Comment.module.css';
 import tooglephoto from '../../photo/loading.gif'
 
-class CommentContainer extends React.Component {    
+class CommentContainer extends React.Component {
 
-    componentDidMount(){
-        this.props.getcomment(); 
+    componentDidMount() {
+        this.props.getcomment();
     }
 
 
 
     render() {
-        if (this.props.comment.length===0)
-        return (<div><img className={s.photoload} src={tooglephoto} /></div>)
+        if (this.props.comment.length === 0)
+            return (<div><img className={s.photoload} src={tooglephoto} /></div>)
 
-        return (            
+        return (
             <Comment {...this.props} />
         )
     }
@@ -31,4 +31,4 @@ let mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {getcomment, addcommentBD})(CommentContainer);
+export default connect(mapStateToProps, { getcomment, addcommentBD })(CommentContainer);

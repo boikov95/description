@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import s from './Instructions.module.css';
-import tooglephoto from '../../photo/loading.gif'
 import { setFlag } from '../../Redux/authreducer';
 import { addInstructionsNew, loadInstructions, loadTeg } from '../../Redux/instructionsreducer';
 import { instructionsSelector } from '../../Redux/userSelector';
@@ -17,7 +16,7 @@ class InstructionsContainer extends React.Component {
     componentWillUnmount() {
         this.props.setFlag(false);
     }
-    render() {        
+    render() {
         if (this.props.instructions.length === 0)
             return (<div className={s.instr}>Указаний по данному(данным) фильтрам не найдено</div>)
         return (
@@ -30,7 +29,7 @@ class InstructionsContainer extends React.Component {
 const Instructions = (props) => {
     const childactive = useRef();
     const [updateIns, setupdateIns] = useState(false);
-    
+
     const useDidMountEffect = (func, deps) => {
         const didMount = useRef(false);
         useEffect(() => {

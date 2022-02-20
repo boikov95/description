@@ -2,9 +2,9 @@ import { API } from "../api/api";
 
 const LAST_DOCUMENT = 'LAST_DOCUMENT';
 
-export const lastDocument = (document) => ({ type:LAST_DOCUMENT, document});
+export const lastDocument = (document) => ({ type: LAST_DOCUMENT, document });
 
-let initialState = {    
+let initialState = {
     document: []
 }
 
@@ -14,20 +14,20 @@ let modalreducer = (state = initialState, action) => {
             return {
                 ...state,
                 document: action.document
-            }       
+            }
         default: return state;
     }
 }
 
 export const getlastDocument = () =>
     async (dispatch) => {
-        let data = await API.getlastDocument(); 
+        let data = await API.getlastDocument();
         debugger;
-        if (data.code === "success") { 
-        debugger;
-        dispatch(lastDocument(data.result));        
-        }        
-    }  
+        if (data.code === "success") {
+            debugger;
+            dispatch(lastDocument(data.result));
+        }
+    }
 
 
 export default modalreducer;

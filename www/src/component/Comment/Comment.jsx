@@ -12,45 +12,45 @@ const ReduxFormComment = reduxForm({
 
 
 const Comment = (props) => {
-    
-    const submit = (formData, dispatch) =>{        
+
+    const submit = (formData, dispatch) => {
         props.addcommentBD(formData);
         dispatch(reset("comment"));
 
     }
 
     return (
-        <div>       
-        
-        <div className={s.readcomment}>
-            {props.comment.map((comment, index) => {
-                return (
-                    <div key={index} className={s.mainblock+" "+(comment.visible ? s.vis : "")}>
-                        <div className={s.block_one}>
-                            <img className={s.photocomment} src={user} />
-                            <div className={s.date}>
-                                {comment.date_add}
+        <div>
+
+            <div className={s.readcomment}>
+                {props.comment.map((comment, index) => {
+                    return (
+                        <div key={index} className={s.mainblock + " " + (comment.visible ? s.vis : "")}>
+                            <div className={s.block_one}>
+                                <img className={s.photocomment} src={user} />
+                                <div className={s.date}>
+                                    {comment.date_add}
+                                </div>
+
                             </div>
-                            
-                        </div>
-                        <div className={s.block_two}>                            
-                            <div className={s.namecomment}>
-                                {comment.name}
+                            <div className={s.block_two}>
+                                <div className={s.namecomment}>
+                                    {comment.name}
+                                </div>
+                                <div className={s.textcomment}>
+                                    {comment.text}
+                                </div>
                             </div>
-                            <div className={s.textcomment}>
-                                {comment.text}
-                            </div>                            
+
                         </div>
+                    )
+                })}
 
-                    </div>
-                )
-            })}
+            </div>
 
-        </div>
-
-        <div className={s.addcomment}>
-            <ReduxFormComment onSubmit={submit}/>            
-        </div>
+            <div className={s.addcomment}>
+                <ReduxFormComment onSubmit={submit} />
+            </div>
 
         </div>
 
