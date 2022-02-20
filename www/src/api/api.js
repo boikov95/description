@@ -1,8 +1,7 @@
 import * as axios from 'axios'
 
 const instance = axios.create({
-    //withCredentials: true,
-    //headers: { "API-KEY": "95005993-829f-4cc4-b1ef-f971d9bd11a8" },
+    //withCredentials: true,    
     baseURL: 'http://description/src/php/index.php'
 
 });
