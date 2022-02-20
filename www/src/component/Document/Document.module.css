@@ -1,0 +1,46 @@
+.photoload{
+    width: 150px;
+}
+
+.imageBD{
+    width: 100%;
+}
+.pdfBD{
+    width: 100%;
+    height: 750px;
+}
+
+.nameParent{
+    color: red;
+    font-size: 25px;
+}
+
+.child{
+    color: sienna;
+    margin-left: 40px;    
+}
+
+.nameChild{
+    color: sienna; 
+}
+
+.nameChild:hover{
+    color:slateblue;    
+}
+
+.child:hover{
+    color:slateblue;    
+}
+
+.noDocument{
+    height: 80vh;
+    width: 75vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(50, 36, 240);
+    font-size: 25px;
+}
+

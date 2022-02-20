@@ -1,0 +1,88 @@
+.header{
+    /* -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    -ms-grid-row: 1; */
+    grid-area: h;
+    background-color: yellow;
+  }
+  
+  .header img{
+    width: 50px;
+  }
+
+  .auth{
+    float: right;
+  }
+
+  .search{
+    position: relative;
+    background: rgb(148, 148, 4);
+    border-radius: 20px;
+    width: 15%;
+    height: 45%;
+    margin-left: 45px;
+    font-size: 18px;
+    top: 13px;
+  }  
+
+  .searchInstruction{
+    position: relative;
+    background: rgb(148, 148, 4);
+    border-radius: 20px;
+    width: 30%;
+    height: 100%;
+    margin-left: 130px;
+    font-size: 18px;
+  }  
+
+  .tegi{
+    position: relative; 
+    display: inline-block;
+    border-radius: 10px;
+    height: 100%;
+    background: rgb(148, 148, 4);
+    margin-left: 20px;
+    text-align: center;
+    vertical-align: top;
+    top: 4px;
+    left: 100px;
+  } 
+
+  .tegi.active{    
+    background: rgb(235, 132, 15);
+  } 
+
+  .tegi.active:hover{
+    background: rgb(148, 148, 4);
+  }
+
+  .tegi::after{
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;   
+  }
+
+  .text{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .tegi:hover{
+    background: rgb(235, 132, 15);
+    cursor: pointer;    
+  }
+
+  .blockdannie{
+    display: inline-block;    
+    min-width: 80%;
+    top: 25%;
+    position: relative;
+    text-align: center;
+    height: 40%;
+  }
+  
+  .parentdocument{
+    font-size: 25px;
+    color: red;
+  }

@@ -1,0 +1,71 @@
+.photoload{
+    width: 150px;
+}
+
+.photocomment{
+    width: 70px;
+    border-radius: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.date{
+    color: rgb(32, 156, 156);
+}
+
+.readcomment{
+    position: relative;
+    display: inline-block;
+    width: 70%;
+    height: 700px;
+    overflow: auto;
+    }
+
+.addcomment{
+    position: relative;
+    display: inline-block;
+    width: 29%;
+    height: 50px;
+    vertical-align: top;
+    left: 4px;
+}
+
+.mainblock{
+    position: relative;
+    width: 99%;
+    border-style: solid;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: rgb(59, 58, 58);
+    top: 10px;
+}
+
+.mainblock.vis{
+    background: rgb(32, 230, 59);
+}
+
+.block_one{    
+    display: inline-block;  
+}
+
+.block_two{
+    position: relative;
+    display: inline-block;
+    width: 85%;
+    margin-left: 10px;
+    vertical-align: top;
+}
+
+.namecomment{
+    font-size: 20px;
+    color: darkgoldenrod;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.textcomment{
+    font-size: 15px;
+    color: rgb(133, 83, 226);
+}

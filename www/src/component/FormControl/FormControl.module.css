@@ -1,0 +1,35 @@
+.formControl.error textarea{
+    border: solid red 4px;
+}
+
+.formControl.error span{
+    color: red;
+}
+
+.FIO{
+    margin-top: 10px;
+    width: 99%;
+    height: 40px;
+}
+
+.text{
+    margin-top: 10px;
+    width: 99%;
+    height: 250px;
+}
+
+.publish{
+    font-size: 15px;
+    background: rgb(59, 59, 219);
+    border-radius: 20px;
+    height: 35px;
+    width: 50%;
+    margin-left: 25%;
+    cursor: pointer;
+}
+
+.publish:hover{
+    transform: scale(1.2);
+}
+
+

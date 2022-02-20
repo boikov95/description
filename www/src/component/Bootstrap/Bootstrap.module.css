@@ -1,0 +1,54 @@
+.bootstrap{
+    grid-area: b;
+    background: rgb(104, 101, 101);
+}
+
+.activeLink{
+  color: rgb(4, 219, 4); 
+}
+
+.instructions{
+    position: relative;
+    display:inline-block;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 40px;
+    width: 150px;
+    background: white; 
+    align-content: center;      
+    text-align: center;
+    margin: 2px 2px 2px 2px;
+  }
+
+  .instructions:hover{
+    background: rgb(4, 219, 4); 
+    transform: scale(1.1); 
+  }
+
+  .photoinstructions{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display:inline-block;
+    margin: 0%;
+    top: 7px;
+  }
+  .text{
+    display:inline-block;
+    margin-top: 0px;
+    position: relative;
+    bottom: 10%;
+    left: 5%;
+    font-size: 16px;
+  }
+
+  .newinstructions{
+    max-width: 45px;
+    max-height: 45px;
+    border-radius: 25px;
+    float: right;   
+    cursor: pointer; 
+    margin-top: 5px;
+  }
+
+
