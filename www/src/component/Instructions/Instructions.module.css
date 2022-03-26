@@ -1,54 +1,64 @@
-.block{
-    position: relative;
-    border-style: solid;
-    width: 97%;
+.block {
+  position: relative;
+  border-style: solid;
+  width: 95%;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: beige;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.instr {
+  color: rgb(85, 85, 207);
+  font-size: 20px;
+}
+
+.country {
+  padding: 10px 10px 10px 50px;
+  color: rgb(85, 85, 207);
+  font-size: 20px;
+}
+
+.text {
+  padding-left: 25px;
+  font-size: 20px;
+}
+
+.dateteg {
+  padding: 10px 10px 10px 10px;
+}
+
+.date {
+  display: inline-block;
+  color: rgb(85, 85, 207);
+  font-size: 18px;
+}
+
+.teg {
+  display: inline-block;
+}
+
+.textteg {
+  margin-left: 10px;
+  border-radius: 10px;
+  background: rgb(212, 212, 5);
+  left: 30px;
+  padding: 5px 5px 5px 5px;
+}
+
+.blockscroll {
+  width: 100%;
+  height: 820px;
+  overflow: auto;
+}
+
+/* .blockscroll::-webkit-scrollbar{
+    width: 7px;
+  }    
+  
+  .blockscroll::-webkit-scrollbar-thumb{
+    background-color: rgb(85, 85, 83);
     border-radius: 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.instr{
-    color: rgb(85, 85, 207);
-    font-size: 20px;
-}
-
-.country{
-    padding: 10px 10px 10px 50px;
-    color: rgb(85, 85, 207);
-    font-size: 20px;
-}
-
-.text{
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 18px;
-}
-
-.dateteg{
-    padding: 10px 10px 10px 10px;    
-}
-
-.date{
-    display: inline-block;
-    color: rgb(85, 85, 207);
-    font-size: 18px;
-}
-
-.teg{
-    display: inline-block; 
-}
-
-.textteg{
-    margin-left: 10px;
-    border-radius: 10px;
-    background: red;
-    left: 30px;
-    padding: 5px 5px 5px 5px;
-}
-
-.blockscroll{
-    width:100%;
-    height: 700px;
-    overflow: auto;
-}
-
+  }  */

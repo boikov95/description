@@ -1,0 +1,90 @@
+.menu {
+  background: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-40px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 999;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333333;
+  padding: 5px 5px;
+  display: block;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333333;
+  padding: 5px 5px;
+  display: block;
+}
+
+.infoCount {
+  position: relative;
+  display: inline-block;
+}
+
+.countInstruction {
+  position: absolute;
+  background: yellow;
+  padding: 0 5px;
+  border-radius: 100px;
+  right: -10px;
+  top: -5px;
+}
+
+.menu li img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 35px;
+}
+
+.menu li span {
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  color: rgb(7, 122, 122);
+}
+
+.menu li:hover {
+  background: #a1a1a1;
+}
+
+.menu li:active {
+  background: yellow;
+}
+
+.menu .activeLink {
+  color: yellow;
+}
+
+.menu_trigger {
+  position: relative;
+  cursor: pointer;
+  vertical-align: top;
+  margin-left: 10px;
+}

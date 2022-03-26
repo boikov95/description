@@ -1,63 +1,90 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect";
 
 const getTree = (state) => {
-    return (state.auth.tree)
-}
+  return state.auth.tree;
+};
 
 const getTeg = (state) => {
-    return (state.instructions.tegi)
-}
+  return state.instructions.tegi;
+};
 
 const getSearch = (state) => {
-    return (state.instructions.search)
-}
+  return state.instructions.search;
+};
 
 const getInstruction = (state) => {
-    return (state.instructions.instructions)
-}
+  return state.instructions.instructions;
+};
 
-export const instructionsSelector = createSelector(getTeg, getInstruction, getSearch, (tegi, instructions, search) => {
-    let instruction = tegi.filter(u => u.flag);
-    if (instruction.length == 0 && search.length == 0)
-        return instructions;
+export const instructionsSelector = createSelector(
+  getTeg,
+  getInstruction,
+  getSearch,
+  (tegi, instructions, search) => {
+    let instruction = tegi.filter((u) => u.flag);
+    if (instruction.length == 0 && search.length == 0) return instructions;
 
-    return (instructions.filter((el) => {
-        if (instruction.reduce((acc, prev) => {
-            if (el.teg.indexOf(prev.name) != -1) {
-                return acc + 1;
-            }
-        }, 0) === instruction.length && el.text.toUpperCase().indexOf(search.toUpperCase()) != -1) return el
-    }))
+    return instructions.filter((el) => {
+      if (
+        instruction.reduce((acc, prev) => {
+          if (el.teg.indexOf(prev.name) != -1) {
+            return acc + 1;
+          }
+        }, 0) === instruction.length &&
+        el.text.toUpperCase().indexOf(search.toUpperCase()) != -1
+      )
+        return el;
+    });
+  }
+);
 
-})
+export const loadCountryInstructions = createSelector(getTree, (tree) => {
+  return tree.filter((element) => element.parent === "#");
+});
 
 export const loadTree = createSelector(getTree, (tree) => {
-    let usetree = [];
+  let usetree = [];
 
-    let poisk = (el, searchId) => {
-        if (el.id === searchId.parent) {
-            el.children.push({ "id": searchId.id, "text": searchId.text, "photo": "http://description/src/php/index.php?action=load_countryimage&id=" + searchId.id, "children": [] });
-        }
-        else if (el.children) {
-            el.children.map((array) => poisk(array, searchId));
-        }
+  let poisk = (el, searchId) => {
+    if (el.id === searchId.parent) {
+      el.children.push({
+        id: searchId.id,
+        text: searchId.text,
+        photo:
+          "http://description/src/php/index.php?action=load_countryimage&id=" +
+          searchId.id,
+        children: [],
+      });
+      return true;
+    } else if (el.children) {
+      el.children.map((array) => poisk(array, searchId));
     }
+  };
 
-    tree.map((element) => {
-        if (element.parent == "#") {
-            usetree.push({ "id": element.id, "text": element.text, "photo": "http://description/src/php/index.php?action=load_countryimage&id=" + element.id, "children": [] });
-        }
-        else {
-            usetree.map(position => {
-                poisk(position, element)
-            })
-        }
-    })
+  tree.map((element) => {
+    if (element.parent == "#") {
+      usetree.push({
+        id: element.id,
+        text: element.text,
+        photo:
+          "http://description/src/php/index.php?action=load_countryimage&id=" +
+          element.id,
+        children: [],
+      });
+    } else {
+      for (let i = 0; i < element.id; i++) {
+        if (typeof usetree[i] === "undefined") break;
+        if (poisk(usetree[i], element)) break;
+      }
+      // usetree.map((position) => {
+      //   poisk(position, element);
+      // });
+    }
+  });
 
-    debugger;
-    return (usetree);
-})
+  let sortArray = (x, y) => {
+    return x.text.localeCompare(y.text);
+  };
 
-
-
-
+  return usetree.sort(sortArray);
+});

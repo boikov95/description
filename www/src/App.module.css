@@ -1,23 +1,22 @@
-.wrapper{
+.wrapper {
   width: 100%;
   margin: 0 auto;
-  /* display: -ms-grid; */
-  display: grid;
-  grid-template:
-  "b b"
+  display: -ms-grid;
+  /* display: grid; */
+  /* grid-template:  
   "h h"
-  "n c";
-  /* -ms-grid-rows: 60px 1fr;
-  -ms-grid-columns: 2fr 10fr; */
-  grid-template-rows: 50px 60px 1fr;
-  grid-template-columns: 3fr 10fr;  
+  "n c"; */
+  -ms-grid-rows: 60px 1fr;
+  -ms-grid-columns: 3.5fr 10fr;
+  /* grid-template-rows: 60px 1fr;
+  grid-template-columns: 3fr 10fr;   */
 }
 
-.content{
-  /* -ms-grid-column: 2;
-  -ms-grid-row: 2; */
-  grid-area: c;
-  height: 710px;
+.content {
+  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+  /* grid-area: c; */
+  height: 820px;
   overflow: auto;
-  background-color: rgb(39, 39, 63);
+  background-color: #c0e0de;
 }

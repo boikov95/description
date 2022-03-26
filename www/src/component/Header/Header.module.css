@@ -1,88 +1,107 @@
-.header{
-    /* -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    -ms-grid-row: 1; */
-    grid-area: h;
-    background-color: yellow;
-  }
-  
-  .header img{
-    width: 50px;
-  }
+.header {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  -ms-grid-row: 1;
+  /* grid-area: h; */
+  /* background-color: yellow; */
+  background-image: url("../../photo/plane1.jpg");
+  background-size: 45%, 100%;
+  position: relative;
+}
 
-  .auth{
-    float: right;
-  }
+.header:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 10, 0.4);
+  content: "";
+}
 
-  .search{
-    position: relative;
-    background: rgb(148, 148, 4);
-    border-radius: 20px;
-    width: 15%;
-    height: 45%;
-    margin-left: 45px;
-    font-size: 18px;
-    top: 13px;
-  }  
+.header img {
+  width: 50px;
+}
 
-  .searchInstruction{
-    position: relative;
-    background: rgb(148, 148, 4);
-    border-radius: 20px;
-    width: 30%;
-    height: 100%;
-    margin-left: 130px;
-    font-size: 18px;
-  }  
+.flexblock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
 
-  .tegi{
-    position: relative; 
-    display: inline-block;
-    border-radius: 10px;
-    height: 100%;
-    background: rgb(148, 148, 4);
-    margin-left: 20px;
-    text-align: center;
-    vertical-align: top;
-    top: 4px;
-    left: 100px;
-  } 
+.blockSearch {
+  flex: 0 0 409px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+}
 
-  .tegi.active{    
-    background: rgb(235, 132, 15);
-  } 
+.blockdannie {
+  position: relative;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
 
-  .tegi.active:hover{
-    background: rgb(148, 148, 4);
-  }
+.search {
+  position: relative;
+  background: rgb(212, 212, 5);
+  border-radius: 20px;
+  height: 45%;
+  width: 80%;
+  margin: 0 10px;
+  font-size: 18px;
+}
 
-  .tegi::after{
-    content: '';
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;   
-  }
+.searchInstruction {
+  position: relative;
+  background: rgb(212, 212, 5);
+  border-radius: 20px;
+  flex: 0 0 320px;
+  height: 38%;
+  font-size: 18px;
+  margin-left: 18px;
+}
 
-  .text{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.tegi {
+  position: relative;
+  border-radius: 10px;
+  height: 36%;
+  background: rgb(212, 212, 5);
+  margin-left: 18px;
+  padding-top: 3px;
+}
 
-  .tegi:hover{
-    background: rgb(235, 132, 15);
-    cursor: pointer;    
-  }
+.tegi.active {
+  background: rgb(235, 132, 15);
+}
 
-  .blockdannie{
-    display: inline-block;    
-    min-width: 80%;
-    top: 25%;
-    position: relative;
-    text-align: center;
-    height: 40%;
-  }
-  
-  .parentdocument{
-    font-size: 25px;
-    color: red;
-  }
+.tegi.active:hover {
+  background: rgb(212, 212, 5);
+}
+
+.text {
+  margin: 0 10px;
+}
+
+.tegi:hover {
+  background: rgb(235, 132, 15);
+  cursor: pointer;
+}
+
+.parentdocument {
+  font-size: 25px;
+  color: rgb(117, 115, 245);
+}
+
+.list {
+  margin-left: 18px;
+  border-radius: 20px;
+  height: 48%;
+  padding: 0 15px;
+  font-size: 18px;
+  background: rgb(212, 212, 5);
+}
