@@ -3,8 +3,8 @@
 header('Access-Control-Allow-Origin:*');
 // Объявляем нужные константы
 define('DB_HOST', 'localhost');
-define('DB_USER', 'sa');
-define('DB_PASSWORD', 'escort');
+define('DB_USER', 'user');
+define('DB_PASSWORD', 'passsword');
 define('DB_NAME', 'categories');
 
 
