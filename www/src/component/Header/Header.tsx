@@ -1,9 +1,26 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, ChangeEvent } from "react";
 import s from "./Header.module.css";
-import DropdownMenu from "../Menu/DropdownMenu.jsx";
-import ModalContainer from "../Modal/ModalContainer.jsx";
+import DropdownMenu from "../Menu/DropdownMenu.tsx";
+import ModalContainer from "../Modal/ModalContainer.tsx";
+import { categoriesType, lastDocumentType, tegType } from "../../api/api.ts";
 
-const Header = (props) => {
+type HeaderType = {
+  value: string;
+  tegi: Array<tegType>;
+  flagInstructions: boolean;
+  search: string;
+  flagDocument: boolean;
+  parentdocument: string;
+  tree: Array<categoriesType>;
+  lastInstruction: Array<lastDocumentType>;
+  searchCountry: (search: string) => void;
+  setSearchTeg: (teg: string) => void;
+  setSearch: (search: string) => void;
+  setCountryId: (id: string) => void;
+  deleteInstructionID: (id: number) => void;
+};
+
+const Header: React.FC<HeaderType> = (props) => {
   const [country, setCountry] = useState(0);
   const [modal, setModal] = useState(false);
   const visibleModal = useRef(true);
@@ -15,7 +32,7 @@ const Header = (props) => {
     }
   }, [props.lastInstruction]);
 
-  const useDidMountEffect = (func, deps) => {
+  const useDidMountEffect = (func: any, deps: any) => {
     const didMount = useRef(false);
     useEffect(() => {
       if (didMount.current) func();
@@ -79,8 +96,7 @@ const Header = (props) => {
             <select
               value={country}
               className={s.list}
-              id={props.id}
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={(e) => setCountry(+e.target.value)}
             >
               <option value="0">Выберите страну</option>
               {props.tree.map((el) => {

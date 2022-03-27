@@ -1,12 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
+import { RouteComponentProps } from "react-router";
 import { NavLink } from "react-router-dom";
+import { categoriesType } from "../../api/api.ts";
+import { DocumentType } from "../../Redux/documentreducer.ts";
 import s from "./Document.module.css";
-import Pdf from "./PdfContainer/Pdf.jsx";
+import Pdf from "./PdfContainer/Pdf";
 
-const Document = (props) => {
+type DocumentTypeFC = {
+  documentdata: Array<DocumentType>;
+  loadtree: Array<categoriesType>;
+  loadDocument: (id: number) => void;
+  setDocumentFlag: (flag: boolean) => void;
+  setParentDocumentText: (id: number) => void;
+  addStatistic: (id: number) => void;
+  Id: string;
+};
+
+const Document: React.FC<DocumentTypeFC & RouteComponentProps> = (props) => {
   const [child, setChild] = useState({
     textId: "",
-    children: [],
+    children: [] as Array<categoriesType>,
   });
   const childactive = useRef(false);
 
@@ -14,16 +27,16 @@ const Document = (props) => {
     if (!props.Id) {
       props.history.push("/instructions");
     } else {
-      let IdName = props.loadtree.filter((element) => element.id === props.Id);
+      let IdName = props.loadtree.filter((element) => element.id === +props.Id);
       let parentTree = props.loadtree.filter(
         (element) => element.parent === props.Id
       );
       if (parentTree.length == 0) {
-        props.loadDocument(props.Id);
-        props.setParentDocumentText(props.Id);
+        props.loadDocument(+props.Id);
+        props.setParentDocumentText(+props.Id);
         childactive.current = false;
       } else {
-        props.setParentDocumentText(props.Id);
+        props.setParentDocumentText(+props.Id);
         childactive.current = true;
         setChild({
           textId: IdName[0].text,
@@ -60,13 +73,13 @@ const Document = (props) => {
   return (
     <div>
       {props.documentdata.length ? (
-        props.documentdata.map((element) => {
+        props.documentdata.map((element, index) => {
           return (
-            <div className={s.documentisk} key={element.id}>
+            <div className={s.documentisk} key={index}>
               <div className={s.documenttext}>{element.text}</div>
-              {element.image.map((image) => (
+              {element.image.map((image, index) => (
                 <img
-                  key={element.id}
+                  key={index}
                   className={s.imageBD}
                   src={image.src}
                   title={image.nameimage}

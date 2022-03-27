@@ -1,4 +1,13 @@
 {
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {}
+    }
+  },
   "env": {
     "browser": true,
     "es2021": true
@@ -8,7 +17,11 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
-    "prettier"
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+    // "prettier",
+    // "prettier/unicorn",
+    // "prettier/@typescript-eslint"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -20,6 +33,16 @@
   "plugins": ["react"],
   "rules": {
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "no-var": "off",
+    "semi": "off",
+    "indent": "off",
+    "no-multi-spaces": "off",
+    "space-in-parens": "off",
+    "no-multiple-empty-lines": "off",
+    "prefer-const": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/extensions": ["error", "ignorePackages", { "": "never" }]
   }
 }

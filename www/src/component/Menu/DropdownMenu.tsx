@@ -5,9 +5,15 @@ import comment from "../../photo/comment.png";
 import newphoto from "../../photo/newphoto.png";
 import menu from "../../photo/menu.png";
 import { NavLink } from "react-router-dom";
+import { lastDocumentType } from "../../api/api.ts";
 // import { Redirect } from "react-router-dom";
 
-const DropdownMenu = (props) => {
+type DropdownMenuType = {
+  lastInstruction: Array<lastDocumentType>;
+  setActive: (active: boolean) => void;
+};
+
+const DropdownMenu: React.FC<DropdownMenuType> = (props) => {
   const [isActive, setIsActive] = useState(false);
 
   return (

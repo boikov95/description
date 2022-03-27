@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { pdfdataType } from "../../../Redux/documentreducer.ts";
 import s from "./../Document.module.css";
 
-const Pdf = (props) => {
+type pdfType = {
+  pdf: Array<pdfdataType>;
+};
+
+const Pdf: React.FC<pdfType> = (props) => {
   const [pdfNumber, setPdfNumber] = useState(0);
 
   return (

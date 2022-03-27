@@ -1,8 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { lastDocumentType } from "../../api/api.ts";
 import s from "./Modal.module.css";
 
-const ModalContainer = (props) => {
+type ModalContainerType = {
+  active: boolean;
+  setActive: (active: boolean) => void;
+  lastInstruction: Array<lastDocumentType>;
+  deleteInstructionID: (id: number) => void;
+};
+
+const ModalContainer: React.FC<ModalContainerType> = (props) => {
   return (
     <div
       className={s.modal + " " + (props.active ? s.active : "")}

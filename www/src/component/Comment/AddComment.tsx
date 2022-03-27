@@ -1,10 +1,13 @@
 import React from "react";
-import { Field } from "redux-form";
-import { FormControl } from "../FormControl/FormControl.jsx";
-import { required } from "../FormControl/required.jsx";
+import { Field, InjectedFormProps } from "redux-form";
+import { FormControl } from "../FormControl/FormControl.tsx";
+import { required } from "../FormControl/required.tsx";
 import s from "../FormControl/FormControl.module.css";
+import { commentType } from "../../Redux/commentreducer.ts";
 
-const AddComment = (props) => {
+type PropsType = InjectedFormProps<commentType>;
+
+const AddComment: React.FC<PropsType> = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
@@ -12,7 +15,7 @@ const AddComment = (props) => {
           className={s.FIO}
           component={FormControl}
           validate={required}
-          name={"FIO"}
+          name={"name"}
           placeholder={"Введите ФИО"}
         />
       </div>

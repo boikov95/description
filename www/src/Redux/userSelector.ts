@@ -1,18 +1,20 @@
 import { createSelector } from "reselect";
+import { categoriesType, tegType } from "../api/api.ts";
+import { AppStateType } from "./redux-store.ts";
 
-const getTree = (state) => {
+const getTree = (state: AppStateType) => {
   return state.auth.tree;
 };
 
-const getTeg = (state) => {
+const getTeg = (state: AppStateType) => {
   return state.instructions.tegi;
 };
 
-const getSearch = (state) => {
+const getSearch = (state: AppStateType) => {
   return state.instructions.search;
 };
 
-const getInstruction = (state) => {
+const getInstruction = (state: AppStateType) => {
   return state.instructions.instructions;
 };
 
@@ -26,7 +28,7 @@ export const instructionsSelector = createSelector(
 
     return instructions.filter((el) => {
       if (
-        instruction.reduce((acc, prev) => {
+        instruction.reduce((acc: number, prev: tegType): any => {
           if (el.teg.indexOf(prev.name) != -1) {
             return acc + 1;
           }
@@ -42,10 +44,17 @@ export const loadCountryInstructions = createSelector(getTree, (tree) => {
   return tree.filter((element) => element.parent === "#");
 });
 
-export const loadTree = createSelector(getTree, (tree) => {
-  let usetree = [];
+export type usetree = {
+  id: number;
+  text: string;
+  photo: string;
+  children: Array<usetree>;
+};
 
-  let poisk = (el, searchId) => {
+export const loadTree = createSelector(getTree, (tree) => {
+  let usetree = [] as Array<usetree>;
+
+  let poisk = (el: usetree, searchId: categoriesType) => {
     if (el.id === searchId.parent) {
       el.children.push({
         id: searchId.id,
@@ -82,7 +91,7 @@ export const loadTree = createSelector(getTree, (tree) => {
     }
   });
 
-  let sortArray = (x, y) => {
+  let sortArray = (x: any, y: any) => {
     return x.text.localeCompare(y.text);
   };
 

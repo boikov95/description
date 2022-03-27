@@ -1,11 +1,26 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  ChangeEvent,
+  UIEvent,
+} from "react";
 import s from "./Instructions.module.css";
 import Scrollbars from "react-custom-scrollbars";
+import { instructionsType } from "../../api/api.ts";
 
-const Instructions = (props) => {
+type InstructionsType = {
+  instructions: Array<instructionsType>;
+  instructionsId: string;
+  dateInstruction: instructionsType;
+  addInstructionsNew: (where: string) => void;
+  loadInstructions: (where: string) => void;
+};
+
+const Instructions: React.FC<InstructionsType> = (props) => {
   const [updateIns, setupdateIns] = useState(false);
 
-  const useDidMountEffect = (func, deps) => {
+  const useDidMountEffect = (func: any, deps: any) => {
     const didMount = useRef(false);
     useEffect(() => {
       if (didMount.current) func();
@@ -34,9 +49,10 @@ const Instructions = (props) => {
   //     //return () =>   childactive.current.removeEventListener('scroll', updateIn);
   // }, [])
 
-  const updateIn = (e) => {
+  const updateIn = (e: UIEvent<HTMLDivElement>) => {
     if (
-      e.target.scrollHeight - (e.target.scrollTop + window.innerHeight - 50) <
+      e.currentTarget.scrollHeight -
+        (e.currentTarget.scrollTop + window.innerHeight - 50) <
       1
     ) {
       setupdateIns(true);
